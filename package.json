@@ -1,0 +1,57 @@
+{
+  "name": "@0sfs/dev",
+  "version": "0.1.0-candidate.1",
+  "private": true,
+  "license": "AGPL-3.0-only",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/0sfs/dev.git"
+  },
+  "engines": {
+    "node": ">=22.18"
+  },
+  "files": [
+    "dist",
+    "src",
+    "docs",
+    "README.md",
+    "LICENSE",
+    "extraction.json",
+    "AGENTS.md"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/core.d.ts",
+      "import": "./dist/core.js"
+    },
+    "./core": {
+      "types": "./dist/core.d.ts",
+      "import": "./dist/core.js"
+    }
+  },
+  "dependencies": {
+    "@foss-earth/dev": "0.1.0",
+    "@0sfs/simulator": "0.1.0-candidate.1"
+  },
+  "devDependencies": {
+    "typescript": "5.9.3",
+    "vitest": "4.1.6",
+    "@types/node": "24.12.4",
+    "eslint": "9.39.4",
+    "typescript-eslint": "8.59.3",
+    "@eslint/js": "9.39.4"
+  },
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json --noEmit --incremental --tsBuildInfoFile node_modules/.tmp/typecheck.tsbuildinfo",
+    "lint": "eslint src tests --cache --cache-strategy content --cache-location node_modules/.cache/eslint/",
+    "test": "vitest run --config vitest.config.mjs --maxWorkers=50%",
+    "build": "tsc -p tsconfig.build.json"
+  },
+  "splitStatus": {
+    "sharedArtifact": "draft public API; exact accepted archive/lock pending",
+    "checks": "not run; separate slot pending",
+    "policyConformance": "pending",
+    "appAdoption": "pending"
+  }
+}
